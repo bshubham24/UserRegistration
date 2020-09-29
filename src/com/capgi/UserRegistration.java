@@ -62,7 +62,7 @@ public class UserRegistration {
 	}
 
 	public void ValidatePassword(String password) {
-		Pattern pattern = Pattern.compile("(?=.*\\S)(?=.*[A-Z]).{8,}$");
+		Pattern pattern = Pattern.compile("(?=.*\\S)(?=.*[A-Z])(?=.*[0-9]).{8,}$");
 		Matcher matcher = pattern.matcher(password);
 		boolean isValid = matcher.find();
 		if (isValid) {
