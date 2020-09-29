@@ -48,14 +48,27 @@ public class UserRegistration {
 
 	}
 
+	public void ValidatePhoneNo(String phoneNo) {
+		Pattern pattern = Pattern.compile("(^([0-9]+)( )([1-9]{1})([0-9]{9})$)");
+		Matcher matcher = pattern.matcher(phoneNo);
+		boolean isValid = matcher.find();
+		if (isValid) {
+			System.out.println("Number is valid");
+			;
+		} else {
+			System.out.println("Number is invalid");
+
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		UserRegistration userObj = new UserRegistration();
 
-		System.out.println("Enter Email");
-		String email = sc.nextLine();
-		userObj.ValidateEmail(email);
+		System.out.println("Enter Phone number");
+		String phoneNo = sc.nextLine();
+		userObj.ValidatePhoneNo(phoneNo);
 
 	}
 }
