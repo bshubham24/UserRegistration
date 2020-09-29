@@ -35,7 +35,7 @@ public class UserRegistration {
 
 	public void ValidateEmail(String email) {
 		Pattern pattern = Pattern
-				.compile("(^([a-z]+)([+._-]{0,1})([0-9a-z]*)([@]{1})([a-z0-9]+)(.([a-z]{2,})){1}(.[a-z][a-z])?$)");
+				.compile("(^([a-z0-9+_-]+)([.][0-9a-z]+)*@([a-z0-9]+)([.]([a-z]{2,}))([.][a-z]{2})?$)");
 		Matcher matcher = pattern.matcher(email);
 		boolean isValid = matcher.find();
 		if (isValid) {
@@ -78,10 +78,23 @@ public class UserRegistration {
 		Scanner sc = new Scanner(System.in);
 
 		UserRegistration userObj = new UserRegistration();
+		/*
+		 * System.out.println("Enter the First name"); String fName = sc.nextLine();
+		 * userObj.ValidateFirstName(fName);
+		 * 
+		 * System.out.println("Enter the last name"); String lName = sc.nextLine();
+		 * userObj.ValidateLastName(lName);
+		 */
+		System.out.println("Enter Email");
+		String email = sc.nextLine();
+		userObj.ValidateEmail(email);
 
-		System.out.println("Enter Password");
-		String password = sc.nextLine();
-		userObj.ValidatePassword(password);
-
+		/*
+		 * System.out.println("Enter Phone number"); String phoneNo = sc.nextLine();
+		 * userObj.ValidatePhoneNo(phoneNo);
+		 * 
+		 * System.out.println("Enter Password"); String password = sc.nextLine();
+		 * userObj.ValidatePassword(password);
+		 */
 	}
 }
