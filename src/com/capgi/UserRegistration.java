@@ -6,15 +6,16 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
-	public void ValidateLastName(String lName) {
-		Pattern pattern = Pattern.compile("([A-Z]{1})([a-zA-Z]{2,})");
-		Matcher matcher = pattern.matcher(lName);
+	public void ValidateEmail(String email) {
+		Pattern pattern = Pattern
+				.compile("(^([a-z]+)([+._-]{0,1})([0-9a-z]*)([@]{1})([a-z0-9]+)(.([a-z]{2,})){1}(.[a-z][a-z])?$)");
+		Matcher matcher = pattern.matcher(email);
 		boolean isValid = matcher.find();
 		if (isValid) {
-			System.out.println("Name is valid");
+			System.out.println("email is valid");
 			;
 		} else {
-			System.out.println("Name is invalid");
+			System.out.println("email is invalid");
 
 		}
 	}
@@ -24,9 +25,9 @@ public class UserRegistration {
 
 		UserRegistration userObj = new UserRegistration();
 
-		System.out.println("Enter the last name");
-		String lName = sc.nextLine();
-		userObj.ValidateLastName(lName);
+		System.out.println("Enter Email");
+		String email = sc.nextLine();
+		userObj.ValidateEmail(email);
 
 	}
 }
