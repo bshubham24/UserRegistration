@@ -5,28 +5,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UserRegistration {
-	public static boolean ValidateFirstName(String fName) {
+
+	public void ValidateFirstName(String fName) {
 		Pattern pattern = Pattern.compile("([A-Z]{1})([a-zA-Z]{2,})");
 		Matcher matcher = pattern.matcher(fName);
 		boolean isValid = matcher.find();
 		if (isValid) {
-			return true;
+			System.out.println("Name is valid");
+			;
 		} else {
-			return false;
+			System.out.println("Name is invalid");
+
 		}
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("Enter the first name");
-		String fName = sc.nextLine();
-		if (ValidateFirstName(fName)) {
-			System.out.println("Name is valid");
+		UserRegistration userObj = new UserRegistration();
 
-		} else {
-			System.out.println("Name is invalid");
-		}
+		System.out.println("Enter the First name");
+		String fName = sc.nextLine();
+		userObj.ValidateFirstName(fName);
 
 	}
 }
