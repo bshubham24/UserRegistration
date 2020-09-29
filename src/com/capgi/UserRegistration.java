@@ -26,8 +26,8 @@ public class UserRegistration {
 		UserRegistration userObj = new UserRegistration();
 
 		System.out.println("Enter Phone number");
-		String email = sc.nextLine();
-		userObj.ValidatePhoneNo(email);
+		String phoneNo = sc.nextLine();
+		userObj.ValidatePhoneNo(phoneNo);
 
 	}
 }
