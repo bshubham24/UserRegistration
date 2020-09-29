@@ -61,14 +61,27 @@ public class UserRegistration {
 		}
 	}
 
+	public void ValidatePassword(String password) {
+		Pattern pattern = Pattern.compile("(^\\S{8,}$)");
+		Matcher matcher = pattern.matcher(password);
+		boolean isValid = matcher.find();
+		if (isValid) {
+			System.out.println("Password is valid");
+			;
+		} else {
+			System.out.println("Password is invalid");
+
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		UserRegistration userObj = new UserRegistration();
 
-		System.out.println("Enter Phone number");
-		String phoneNo = sc.nextLine();
-		userObj.ValidatePhoneNo(phoneNo);
+		System.out.println("Enter Password");
+		String password = sc.nextLine();
+		userObj.ValidatePassword(password);
 
 	}
 }
